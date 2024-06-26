@@ -15,8 +15,8 @@ local __cells__ = {} -- wezterm FormatItems (ref: https://wezfurlong.org/wezterm
 
 -- stylua: ignore
 local colors = {
-   default   = { bg = '#45475a', fg = '#1c1b19' },
-   is_active = { bg = '#7FB4CA', fg = '#11111b' },
+   default   = { bg = '#45475a', fg = '#7c7e8b' },
+   is_active = { bg = '#7fb4ca', fg = '#11111b' },
    hover     = { bg = '#587d8c', fg = '#1c1b19' },
 }
 
