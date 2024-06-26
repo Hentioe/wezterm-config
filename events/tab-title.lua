@@ -20,24 +20,14 @@ local colors = {
    hover     = { bg = '#587d8c', fg = '#1c1b19' },
 }
 
-local _set_process_name = function(s)
-   local a = string.gsub(s, '(.*[/\\])(.*)', '%2')
-   return a:gsub('%.exe$', '')
-end
-
-local _set_title = function(process_name, base_title, max_width, inset)
-   local title
+local _set_title = function(title, max_width, inset)
    inset = inset or 6
-
-   if process_name:len() > 0 then
-      title = process_name .. ' ~ ' .. base_title
-   else
-      title = base_title
-   end
 
    if title:len() > max_width - inset then
       local diff = title:len() - max_width + inset
-      title = wezterm.truncate_right(title, title:len() - diff)
+      if title:len() > diff then
+         title = wezterm.truncate_right(title, title:len() - diff)
+      end
    end
 
    return title
@@ -67,9 +57,8 @@ M.setup = function()
 
       local bg
       local fg
-      local process_name = _set_process_name(tab.active_pane.foreground_process_name)
       local is_admin = _check_if_admin(tab.active_pane.title)
-      local title = _set_title(process_name, tab.active_pane.title, max_width, (is_admin and 8))
+      local title = _set_title(tab.active_pane.title, max_width, (is_admin and 8))
 
       if tab.is_active then
          bg = colors.is_active.bg
