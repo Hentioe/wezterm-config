@@ -38,11 +38,13 @@ return {
    switch_to_last_active_tab_when_closing_tab = true,
 
    -- window
+   initial_cols = 150,
+   initial_rows = 34,
    window_padding = {
-      left = 5,
-      right = 10,
-      top = 12,
-      bottom = 7,
+      left = 0,
+      right = 0,
+      top = 0,
+      bottom = 0,
    },
    window_close_confirmation = 'NeverPrompt',
    window_frame = {
