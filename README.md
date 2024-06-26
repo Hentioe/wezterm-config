@@ -10,6 +10,7 @@
 - 简化标签页标题（包含一些修复）：
   - 修复某些情况下标题可能为空（如给 Neovim 配置 `vi` 别名，并用 `sudo` 启动时）
   - 修复 Windows 上重复显示 Powershell 标题
+- 在 Windows 上默认使用和 VS Code 一样的字体
 
 ## 结语
 

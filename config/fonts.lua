@@ -1,7 +1,12 @@
 local wezterm = require('wezterm')
-local platform = require('utils.platform')
+local platform = require('utils.platform')()
 
-local font = wezterm.font_with_fallback { 'Noto Sans Mono', 'Noto Sans Mono CJK SC' }
+local font
+if platform.is_win then
+    font = wezterm.font_with_fallback { 'Consolas', 'Courier New', 'monospace' }
+else
+    font = wezterm.font_with_fallback { 'Noto Sans Mono', 'Noto Sans Mono CJK SC' }
+end
 local font_size = 12
 
 return {
