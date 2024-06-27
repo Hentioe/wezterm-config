@@ -1,4 +1,5 @@
 local wezterm = require('wezterm')
+local platform = require('utils.platform')()
 
 -- Inspired by https://github.com/wez/wezterm/discussions/628#discussioncomment-1874614
 
@@ -22,6 +23,10 @@ local colors = {
 
 local _set_title = function(title, max_width, inset)
    inset = inset or 6
+
+   if platform.is_win then
+      title = title:gsub("%.exe$", "")
+   end
 
    if title:len() > max_width - inset then
       local diff = title:len() - max_width + inset
