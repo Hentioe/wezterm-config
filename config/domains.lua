@@ -12,7 +12,7 @@ return {
          distribution = 'Ubuntu',
          username = 'hentioe',
          default_cwd = '/home/hentioe',
-         default_prog = { 'zsh', '-l' },
+         default_prog = { 'zsh' },
       },
    },
 }

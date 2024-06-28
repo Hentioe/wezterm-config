@@ -20,6 +20,7 @@
   - 修复某些情况下标题可能为空（如给 Neovim 配置 `vi` 别名，并用 `sudo` 启动时）
   - 修复 Windows 上重复显示 Powershell 标题
 - 在 Windows 上使用 VS Code 的默认字体
+- 使用非登录 Shell 而不是登录 Shell
 - 一些清理：
   - 移除退出行为设置（避免某些情况下 Ctrl + D 结束终端时被捕获错误）
   - 移除超链接规则

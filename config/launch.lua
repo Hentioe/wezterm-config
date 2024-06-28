@@ -8,10 +8,10 @@ local options = {
 if platform.is_win then
    options.default_prog = { 'powershell' }
    options.launch_menu = {
-      { label = 'PowerShell Core', args = { 'pwsh' } },
+      { label = 'PowerShell Core',    args = { 'pwsh' } },
       { label = 'PowerShell Desktop', args = { 'powershell' } },
-      { label = 'Command Prompt', args = { 'cmd' } },
-      { label = 'Nushell', args = { 'nu' } },
+      { label = 'Command Prompt',     args = { 'cmd' } },
+      { label = 'Nushell',            args = { 'nu' } },
       {
          label = 'Git Bash',
          -- todo: 此处需要修改
@@ -19,19 +19,19 @@ if platform.is_win then
       },
    }
 elseif platform.is_mac then
-   options.default_prog = { '/opt/homebrew/bin/fish', '-l' }
+   options.default_prog = { '/opt/homebrew/bin/fish' }
    options.launch_menu = {
-      { label = 'Bash', args = { 'bash', '-l' } },
-      { label = 'Fish', args = { '/opt/homebrew/bin/fish', '-l' } },
-      { label = 'Nushell', args = { '/opt/homebrew/bin/nu', '-l' } },
-      { label = 'Zsh', args = { 'zsh', '-l' } },
+      { label = 'Bash',    args = { 'bash' } },
+      { label = 'Fish',    args = { '/opt/homebrew/bin/fish' } },
+      { label = 'Nushell', args = { '/opt/homebrew/bin/nu' } },
+      { label = 'Zsh',     args = { 'zsh' } },
    }
 elseif platform.is_linux then
-   options.default_prog = { 'zsh', '-l' }
+   options.default_prog = { 'zsh' }
    options.launch_menu = {
-      { label = 'Bash', args = { 'bash', '-l' } },
-      { label = 'Fish', args = { 'fish', '-l' } },
-      { label = 'Zsh', args = { 'zsh', '-l' } },
+      { label = 'Bash', args = { 'bash' } },
+      { label = 'Fish', args = { 'fish' } },
+      { label = 'Zsh',  args = { 'zsh' } },
    }
 end
 
