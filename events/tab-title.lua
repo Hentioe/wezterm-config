@@ -57,7 +57,11 @@ local _push = function(bg, fg, attribute, text)
 end
 
 M.setup = function()
-   wezterm.on('format-tab-title', function(tab, _tabs, _panes, _config, hover, max_width)
+   wezterm.on('format-tab-title', function(tab, tabs, panes, _config, hover, max_width)
+      -- 判断是否是第一个标签
+      local is_first_tab = tab.tab_index == 0
+      -- 判单是否是最后一个标签
+      local is_last_tab = tab.tab_index == #tabs - 1
       __cells__ = {}
 
       local bg
@@ -85,7 +89,10 @@ M.setup = function()
       end
 
       -- Left semi-circle
-      _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_LEFT)
+      -- 如果是第一个标签，才显示左半圆
+      if is_first_tab then
+         _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_LEFT)
+      end
 
       -- Admin Icon
       if is_admin then
@@ -104,7 +111,10 @@ M.setup = function()
       _push(bg, fg, { Intensity = 'Bold' }, ' ')
 
       -- Right semi-circle
-      _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_RIGHT)
+      -- 如果是最后一个标签，才显示右半圆
+      if is_last_tab then
+         _push('rgba(0, 0, 0, 0.4)', bg, { Intensity = 'Bold' }, GLYPH_SEMI_CIRCLE_RIGHT)
+      end
 
       return __cells__
    end)
