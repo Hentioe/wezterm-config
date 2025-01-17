@@ -21,23 +21,6 @@ local colors = {
    hover     = { bg = '#587d8c', fg = '#1c1b19' },
 }
 
-local _set_title = function(title, max_width, inset)
-   inset = inset or 6
-
-   if platform.is_win then
-      title = title:gsub("%.exe$", "")
-   end
-
-   if title:len() > max_width - inset then
-      local diff = title:len() - max_width + inset
-      if title:len() > diff then
-         title = wezterm.truncate_right(title, title:len() - diff)
-      end
-   end
-
-   return title
-end
-
 local _check_if_admin = function(p)
    if p:match('^Administrator: ') then
       return true
@@ -67,7 +50,7 @@ M.setup = function()
       local bg
       local fg
       local is_admin = _check_if_admin(tab.active_pane.title)
-      local title = _set_title(tab.active_pane.title, max_width, (is_admin and 8))
+      local title = tab.active_pane.title
 
       if tab.is_active then
          bg = colors.is_active.bg
